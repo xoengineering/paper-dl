@@ -3,6 +3,7 @@ require 'arxiv/downloader'
 require 'hal/downloader'
 require 'jstor/downloader'
 require 'ntrs/downloader'
+require 'osf/downloader'
 require 'zenodo/downloader'
 
 require_relative 'downloader/error'        # before the errors below that subclass Error

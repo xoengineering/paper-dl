@@ -51,9 +51,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'arxiv-dl',  '~> 0.3', '>= 0.3.2' # 0.3.2 stops accepting other sources' DOIs
-  spec.add_dependency 'dl-core',   '~> 0.2'
+  spec.add_dependency 'dl-core',   '~> 0.3'
   spec.add_dependency 'hal-dl',    '~> 0.1'
   spec.add_dependency 'jstor-dl',  '~> 0.1'
   spec.add_dependency 'ntrs-dl',   '~> 0.1'
+  spec.add_dependency 'osf-dl',    '~> 0.1'
   spec.add_dependency 'zenodo-dl', '~> 0.1'
 end

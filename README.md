@@ -10,6 +10,7 @@ Download papers for offline archives, from any supported source, with one comman
 | JSTOR Early Journal Content, via the Internet Archive | [jstor-dl](https://github.com/xoengineering/jstor-dl) | `10.2307/4385670`, `https://www.jstor.org/stable/4385670` |
 | HAL, France's national open archive | [hal-dl](https://github.com/xoengineering/hal-dl) | `hal-01207234v1`, `https://hal.science/hal-01207234` |
 | NASA Technical Reports Server | [ntrs-dl](https://github.com/xoengineering/ntrs-dl) | `https://ntrs.nasa.gov/citations/19700020471` |
+| OSF Preprints (PsyArXiv, SocArXiv, and more) | [osf-dl](https://github.com/xoengineering/osf-dl) | `cjy8e_v1`, `https://osf.io/preprints/psyarxiv/cjy8e_v1/` |
 | Zenodo publications | [zenodo-dl](https://github.com/xoengineering/zenodo-dl) | `10.5281/zenodo.884117`, `https://zenodo.org/records/884117` |
 
 Each gem's README covers what it saves, its layout, and its source's terms. Read those before archiving from a source, especially [ntrs-dl's](https://github.com/xoengineering/ntrs-dl#nasas-terms-read-before-using).
@@ -38,7 +39,7 @@ Some input fits more than one source. A bare number could be a JSTOR stable ID o
 4385670: 4385670 could be jstor or zenodo. Prefix it to choose, like jstor:4385670
 ```
 
-Prefix the input with a source name to choose: `jstor:4385670`, `zenodo:884117`, `ntrs:19700020471`, `hal:hal-01207234`, `arxiv:2508.16190`. URLs and DOIs are never ambiguous.
+Prefix the input with a source name to choose: `jstor:4385670`, `zenodo:884117`, `ntrs:19700020471`, `hal:hal-01207234`, `osf:cjy8e`, `arxiv:2508.16190`. URLs and DOIs are never ambiguous.
 
 ### Flags
 
@@ -46,7 +47,7 @@ Prefix the input with a source name to choose: `jstor:4385670`, `zenodo:884117`,
 | ------------------------- | ----------------------------------------------------------------------------- |
 | `-i FILE`, `--input FILE` | Read IDs/URLs from FILE, one per line (`-` for stdin, blanks and `#` skipped) |
 | `-p PATH`, `--path PATH`  | Root download directory                                                       |
-| `--rate-limit SECONDS`    | Seconds between HTTP requests to each source (`0` disables throttling)        |
+| `--rate-limit SECONDS`    | Seconds between HTTP requests to each source (never faster than its gem's default) |
 | `-v`, `--verbose`         | Print step lines and per-request URL/byte logs to stdout                      |
 | `-q`, `--quiet`           | Print nothing to stdout. Errors still go to stderr.                           |
 | `--version`               | Print the gem version and exit                                                |
@@ -77,10 +78,11 @@ $PAPER_DOWNLOAD_PATH/                   # default: $HOME/Downloads/Papers
   hal/YYYY/MM/DD/<domain>/<hal-id>-<slug>/
   jstor/YYYY/MM/DD/<journal>/<jstor-id>-<slug>/
   ntrs/YYYY/MM/DD/<subject>/<ntrs-id>-<slug>/
+  osf/YYYY/MM/DD/<server>/<osf-id>-<slug>/
   zenodo/YYYY/MM/DD/<type>/<concept-id>-<slug>/
 ```
 
-Each source gets its own polite HTTP client, with that gem's User-Agent and its own rate limit, since each is a different server.
+Each source gets its own polite HTTP client, with that gem's User-Agent and its own rate limit, since each is a different server. A source is never asked to go faster than its own gem's default. OSF allows only about 100 anonymous requests an hour, so OSF requests stay 36 seconds apart even when `--rate-limit` is lower.
 
 ## Library usage
 

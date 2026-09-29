@@ -17,7 +17,10 @@ RSpec.describe Paper::Downloader::Router do
       'https://hal.science/hal-01207234'            => 'hal',
       'https://ntrs.nasa.gov/citations/19700020471' => 'ntrs',
       '10.5281/zenodo.884117'                       => 'zenodo',
-      'https://zenodo.org/records/884117'           => 'zenodo'
+      'https://zenodo.org/records/884117'           => 'zenodo',
+      'https://osf.io/preprints/psyarxiv/cjy8e_v1/' => 'osf',
+      '10.31234/osf.io/cjy8e_v1'                    => 'osf',
+      'cjy8e'                                       => 'osf'
     }.each do |input, source|
       it "routes #{input.inspect} to #{source}" do
         expect(source_for(input)).to eq source
@@ -68,7 +71,7 @@ RSpec.describe Paper::Downloader::Router do
       it 'raises Unrecognized' do
         expect { router.route 'not a paper' }.to raise_error(
           Paper::Downloader::Unrecognized,
-          'not a paper ID or URL that arxiv, jstor, hal, ntrs, or zenodo recognizes: not a paper'
+          'not a paper ID or URL that arxiv, jstor, hal, ntrs, osf, or zenodo recognizes: not a paper'
         )
       end
     end

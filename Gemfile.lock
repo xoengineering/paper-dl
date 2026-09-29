@@ -8,6 +8,15 @@ GIT
       nokogiri (~> 1.19)
 
 GIT
+  remote: https://github.com/xoengineering/dl-core.git
+  revision: 037063276fff398028db21db6c920c2922e7c4d1
+  specs:
+    dl-core (0.3.0)
+      http (~> 6.0)
+      ostruct (~> 0.6)
+      stringex (~> 2.8)
+
+GIT
   remote: https://github.com/xoengineering/hal-dl.git
   revision: 228109e6c2d1222f5e66f484748cac4b89d77de7
   specs:
@@ -22,6 +31,13 @@ GIT
       dl-core (~> 0.2)
 
 GIT
+  remote: https://github.com/xoengineering/osf-dl.git
+  revision: 666f1edd0d2855efafef0ba24144e19135892450
+  specs:
+    osf-dl (0.1.0)
+      dl-core (~> 0.3)
+
+GIT
   remote: https://github.com/xoengineering/zenodo-dl.git
   revision: 9c9a2483ed6af9e0a5c9567a0d0eeeed62768918
   specs:
@@ -33,10 +49,11 @@ PATH
   specs:
     paper-dl (0.1.0)
       arxiv-dl (~> 0.3, >= 0.3.2)
-      dl-core (~> 0.2)
+      dl-core (~> 0.3)
       hal-dl (~> 0.1)
       jstor-dl (~> 0.1)
       ntrs-dl (~> 0.1)
+      osf-dl (~> 0.1)
       zenodo-dl (~> 0.1)
 
 GEM
@@ -51,10 +68,6 @@ GEM
       rexml
     crass (1.0.7)
     diff-lcs (1.6.2)
-    dl-core (0.2.0)
-      http (~> 6.0)
-      ostruct (~> 0.6)
-      stringex (~> 2.8)
     domain_name (0.6.20260921)
     erb (6.0.7)
     feedjira (4.0.2)
@@ -169,9 +182,11 @@ PLATFORMS
 
 DEPENDENCIES
   arxiv-dl!
+  dl-core!
   hal-dl!
   irb
   ntrs-dl!
+  osf-dl!
   paper-dl!
   rake
   rspec
@@ -191,7 +206,7 @@ CHECKSUMS
   crack (1.0.1) sha256=ff4a10390cd31d66440b7524eb1841874db86201d5b70032028553130b6d4c7e
   crass (1.0.7) sha256=94868719948664c89ddcaf0a37c65048413dfcb1c869470a5f7a7ceb5390b295
   diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
-  dl-core (0.2.0) sha256=3670225c27b28d95e296a7357581837e5717829a52b9052b4d8fcc01aa43da2e
+  dl-core (0.3.0)
   domain_name (0.6.20260921) sha256=b335949f69fae603fed0ae88c4e09a51e9d8e3ceef4c73a6cfde44eb5c8dee6d
   erb (6.0.7) sha256=c5ca6dc25b0ef974a44dc8f59fe847577122483b1968a38dec305c60bf91ee92
   feedjira (4.0.2) sha256=3e7a90d24fd66eddc809539e637a86a02de1a7e038cd40157e916ed2f3b5ff71
@@ -211,6 +226,7 @@ CHECKSUMS
   nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   ntrs-dl (0.1.0)
+  osf-dl (0.1.0)
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   paper-dl (0.1.0)
   parallel (2.2.0) sha256=e1059c5fd7b649558a0aec38a769f06a42942bdb40503d005a59c352fe011cd8

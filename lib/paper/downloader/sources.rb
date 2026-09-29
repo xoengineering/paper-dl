@@ -26,6 +26,12 @@ module Paper
         client_class:     NTRS::Downloader::Client
       ),
       Source.new(
+        name:             'osf',
+        identifier_class: OSF::Downloader::Identifier,
+        archive_class:    OSF::Downloader::Archive,
+        client_class:     OSF::Downloader::Client
+      ),
+      Source.new(
         name:             'zenodo',
         identifier_class: Zenodo::Downloader::Identifier,
         archive_class:    Zenodo::Downloader::Archive,
