@@ -10,6 +10,8 @@ require_relative 'downloader/source'       # before sources: SOURCES is a list o
 require_relative 'downloader/version'
 
 require_relative 'downloader/ambiguous'    # after error
+require_relative 'downloader/cli'
+require_relative 'downloader/clients'
 require_relative 'downloader/route'
 require_relative 'downloader/router'
 require_relative 'downloader/sources'      # after source

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'paper/downloader'
+
+exit Paper::Downloader::CLI.new(ARGV).run
