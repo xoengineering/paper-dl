@@ -1,5 +1,3 @@
-## [Unreleased]
+## [0.0.1]
 
-## [0.1.0] - 2026-09-29
-
-- Initial release
+Placeholder release to reserve the name. No functionality yet.
